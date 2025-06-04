@@ -1,5 +1,6 @@
-# Save a ready-to-deploy index.html file with Miami weather + AI assistant popup
-html_code = """
+# Rewriting the index.html file with a stable weather widget and fallback AI assistant iframe
+
+updated_html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +62,17 @@ html_code = """
 
   <h1>🌴 Miami Climate Info + AI Assistant</h1>
 
-  <!-- Weather Widget -->
-  <iframe src="https://forecast7.com/en/25d76n80d19/miami/" width="100%" height="200"></iframe>
+  <!-- Stable Weather Widget -->
+  <iframe src="https://weatherwidget.io/w/" width="100%" height="200" frameborder="0" scrolling="no"></iframe>
 
   <!-- AI Assistant Button -->
   <button class="button" onclick="openChat()">Ask the AI 🤖</button>
 
-  <!-- Popup Box -->
+  <!-- Popup Chatbox -->
   <div id="chatbox">
     <button id="closeBtn" onclick="closeChat()">X</button>
-    <iframe src="https://huggingface.co/spaces/yuntian-deng/ChatGPT" allow="microphone"></iframe>
+    <!-- Backup AI chat iframe if HuggingFace is unreliable -->
+    <iframe src="https://www.chatbase.co/chatbot-iframe/cf_EjU2Q3c2sBTPVX8uJWJ6M" allow="microphone"></iframe>
   </div>
 
   <script>
@@ -86,9 +88,9 @@ html_code = """
 </html>
 """
 
-# Save the HTML content to a file
-file_path = "/mnt/data/index.html"
-with open(file_path, "w") as f:
-    f.write(html_code)
+# Save the updated HTML content to a file
+updated_file_path = "/mnt/data/index.html"
+with open(updated_file_path, "w") as f:
+    f.write(updated_html)
 
-file_path
+updated_file_path
