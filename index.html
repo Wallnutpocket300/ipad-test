@@ -1,0 +1,94 @@
+# Save a ready-to-deploy index.html file with Miami weather + AI assistant popup
+html_code = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TSA Geospatial Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    iframe {
+      border: none;
+      margin: 10px 0;
+    }
+    .button {
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    #chatbox {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 70%;
+      background: white;
+      border: 3px solid #444;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+    #chatbox iframe {
+      width: 100%;
+      height: 90%;
+    }
+    #closeBtn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      font-size: 16px;
+      float: right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌴 Miami Climate Info + AI Assistant</h1>
+
+  <!-- Weather Widget -->
+  <iframe src="https://forecast7.com/en/25d76n80d19/miami/" width="100%" height="200"></iframe>
+
+  <!-- AI Assistant Button -->
+  <button class="button" onclick="openChat()">Ask the AI 🤖</button>
+
+  <!-- Popup Box -->
+  <div id="chatbox">
+    <button id="closeBtn" onclick="closeChat()">X</button>
+    <iframe src="https://huggingface.co/spaces/yuntian-deng/ChatGPT" allow="microphone"></iframe>
+  </div>
+
+  <script>
+    function openChat() {
+      document.getElementById('chatbox').style.display = 'block';
+    }
+    function closeChat() {
+      document.getElementById('chatbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+"""
+
+# Save the HTML content to a file
+file_path = "/mnt/data/index.html"
+with open(file_path, "w") as f:
+    f.write(html_code)
+
+file_path
